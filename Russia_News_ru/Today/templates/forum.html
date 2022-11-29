@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Форум</title>
+    {% load static %}
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-dark m-2 btn-sm" href="/">
+            на главную страницу
+        </a>
+        <a class="btn btn-outline-dark m-2 btn-sm" href="/posts">
+            Новостная лента
+        </a>
+    </div>
+
+     <div>
+        Оставьте ваше мнения о любом событии и добавьте смайлик или поделитесь своим изображением
+        <form action="newpost" method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+             <input type="text" placeholder="Ваше имя" name="title"/>
+             <input type="text" placeholder="Напишите ваше мнение" name="text"/>
+             <input type="file" name="file"/>
+             <input type="submit" placeholder="Отправить"/>
+        </form>
+     </div>
+
+     <div>
+        {% for post in posts %}
+            <h3 class="border-top post-title ">{{post.title}}</h3> 
+            <p class="post-text">{{post.text}}</p>
+            <img style="width: 10vw; " src="/static/images/{{post.image}}" alt=""/>
+        {% endfor %}
+    </div> 
+{% endblock %}

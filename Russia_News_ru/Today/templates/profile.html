@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>О нас</title>
+    {% load static %}
+{% endblock %}
+
+{% block content %}
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-outline-dark m-2 btn-sm" href="/">
+                на главную страницу
+            </a>
+            <a class="btn btn-outline-dark m-2 btn-sm" href="/posts">
+                Новостная лента
+            </a>
+        </div>
+        <div>
+            Наш сайт относится к Средствам Массовой Информации (СМИ). Номер регистрации 1024589 от 27.11.2022
+        </div>
+    </body>
+</html>
+{% endblock %}
